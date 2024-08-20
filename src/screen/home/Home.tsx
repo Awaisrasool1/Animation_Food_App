@@ -17,6 +17,7 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
 } from 'react-native-reanimated';
+import {useNavigation} from '@react-navigation/native';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -24,7 +25,7 @@ export default function Home() {
   const [data, setData] = useState(data1);
   const [imgFlag, setImgFlag] = useState(1);
   const scrollY = useSharedValue(0);
-
+  const nav: any = useNavigation();
   const changeBgColor = (id: any) => {
     setImgFlag(id);
     for (let i = 0; i < data.length; i++) {
@@ -84,7 +85,9 @@ export default function Home() {
       opacity: 1 - scrollY.value,
     };
   });
-
+  const changeScreen = (img: any) => {
+    nav.navigate('foodDetails', {img: img});
+  };
   return (
     <View style={styles.container}>
       <View style={{paddingHorizontal: 20, marginTop: 10}}>
@@ -128,6 +131,9 @@ export default function Home() {
                   {...item}
                   index={index}
                   FadeInRight={FadeInRight.duration(index * 1000)}
+                  onPress={() => {
+                    changeScreen(item.img);
+                  }}
                 />
               )}
             />
@@ -140,6 +146,9 @@ export default function Home() {
                   {...item}
                   index={index}
                   FadeInRight={FadeInRight.duration(index * 1000)}
+                  onPress={() => {
+                    changeScreen(item.img);
+                  }}
                 />
               )}
             />

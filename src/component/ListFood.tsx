@@ -1,20 +1,22 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import React from 'react';
-import Animated, { FadeIn, FadeInLeft, FadeInRight, FadeOut } from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 
 export default function ListFood(props: any) {
   return (
-    <Animated.View entering={props.FadeInRight}  style={styles.cardContainer}>
-      <View style={styles.cardContent}>
-        <View style={{flex: 0.5, alignItems: 'center'}}>
-          <Text style={styles.pizzaName}>pizza</Text>
-          <Text style={styles.pizzaPrice}>300</Text>
+    <Pressable onPress={()=>{props.onPress()}}>
+      <Animated.View entering={props.FadeInRight} style={styles.cardContainer}>
+        <View style={styles.cardContent}>
+          <View style={{flex: 0.5, alignItems: 'center'}}>
+            <Text style={styles.pizzaName}>pizza</Text>
+            <Text style={styles.pizzaPrice}>300</Text>
+          </View>
+          <View style={{flex: 0.5}}>
+            <Image source={props.img} style={styles.image} />
+          </View>
         </View>
-        <View style={{flex: 0.5}}>
-          <Image source={props.img} style={styles.image} />
-        </View>
-      </View>
-    </Animated.View>
+      </Animated.View>
+    </Pressable>
   );
 }
 
@@ -23,11 +25,11 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 130,
     marginTop: 5,
-    marginBottom:5,
+    marginBottom: 5,
     alignSelf: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
     elevation: 2,
-    borderRadius:10,
+    borderRadius: 10,
   },
   cardContent: {
     flex: 1,
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    borderRadius:10,
+    borderRadius: 10,
   },
   pizzaName: {
     fontSize: 18,
