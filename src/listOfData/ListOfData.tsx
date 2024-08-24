@@ -52,7 +52,7 @@ const pizzaData = [
   },
 ];
 
-const burgerData=[
+const burgerData = [
   {
     id: 1,
     img: require('../img/burger1.png'),
@@ -83,6 +83,19 @@ const burgerData=[
     img: require('../img/pizza6.png'),
     text: 'Pizza',
   },
-]
+];
 
-export {data1, pizzaData,burgerData};
+const detailData = [
+  {
+    id: 1,
+    name: 'Mozarella ',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9wYni0dc2LwcUeOxbc9mrN_Qpw4XWUDHqQKHqwBXmvI9pySFZZnm8Q9vvjnP0B2bcehQ&usqp=CAU',
+  },
+  {
+    id: 2,
+    name: 'SoS',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlkQXfBXvbBktCYDDPVydVxdlAuKeJm-ScHnjQG8N54qU3Eoor1fSibO525HWytPy3tf8&usqp=CAU',
+  },
+];
+
+export {data1, pizzaData, burgerData, detailData};
