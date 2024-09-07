@@ -8,14 +8,16 @@ const style = StyleSheet.create({
     paddingHorizontal: 10,
   },
   img: {
-    width: width - 200,
-    height: width - 200,
+    width: width - 140,
+    height: width - 140,
+    resizeMode:'contain'
   },
   logoContainer: {
     flexDirection: 'row',
     gap: 10,
     alignItems: 'center',
     marginVertical: 20,
+    marginTop:30
   },
   itemName: {
     fontSize: 16,

@@ -4,7 +4,7 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
-  ScrollView,
+  // ScrollView,
   Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
@@ -18,6 +18,7 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated';
 import {useNavigation} from '@react-navigation/native';
+import { ScrollView } from 'react-native-virtualized-view'
 
 const {width, height} = Dimensions.get('screen');
 
@@ -85,8 +86,8 @@ export default function Home() {
       opacity: 1 - scrollY.value,
     };
   });
-  const changeScreen = (img: any) => {
-    nav.navigate('foodDetails', {img: img});
+  const changeScreen = (item:any) => {
+    nav.navigate('foodDetails', {image: item});
   };
   return (
     <View style={styles.container}>
@@ -132,7 +133,7 @@ export default function Home() {
                   index={index}
                   FadeInRight={FadeInRight.duration(index * 1000)}
                   onPress={() => {
-                    changeScreen(item.img);
+                    changeScreen(item);
                   }}
                 />
               )}
@@ -147,7 +148,7 @@ export default function Home() {
                   index={index}
                   FadeInRight={FadeInRight.duration(index * 1000)}
                   onPress={() => {
-                    changeScreen(item.img);
+                    changeScreen(item);
                   }}
                 />
               )}
@@ -172,34 +173,42 @@ export default function Home() {
       {/* bg image */}
       <View>
         {imgFlag == 1 && (
-          <Animated.Image
+         <Animated.View style={[styles.bgImg, animatedStyle]}> 
+           <Animated.Image
             entering={FadeInLeft.duration(700)}
             source={require('../../img/burger2.png')}
-            style={[styles.bgImg, animatedStyle]}
+            style={{width:170,height:170}}
           />
+         </Animated.View>
         )}
         {imgFlag == 2 && (
+           <Animated.View style={[styles.bgImg, {top: -height + 200}, animatedStyle]}> 
           <Animated.Image
             entering={FadeInLeft.duration(700)}
             source={require('../../img/pizza5.png')}
-            style={[styles.bgImg, {top: -height + 200}, animatedStyle]}
+            style={{width:170,height:170}}
           />
+          </Animated.View>
         )}
       </View>
       <View>
         {imgFlag == 1 && (
+           <Animated.View style={[styles.bgImg1, animatedStyle]}> 
           <Animated.Image
             entering={FadeInRight.duration(700)}
             source={require('../../img/burger1.png')}
-            style={[styles.bgImg1, animatedStyle]}
+            style={{width:170,height:170}}
           />
+          </Animated.View>
         )}
         {imgFlag == 2 && (
+           <Animated.View style={[styles.bgImg1, {top: -height + 500}, animatedStyle]}> 
           <Animated.Image
             entering={FadeInRight.duration(700)}
             source={require('../../img/pizza4.png')}
-            style={[styles.bgImg1, {top: -height + 500}, animatedStyle]}
+            style={{width:170,height:170}}
           />
+          </Animated.View>
         )}
       </View>
     </View>

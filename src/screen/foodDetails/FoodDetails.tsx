@@ -5,6 +5,7 @@ import style from './style';
 import Animate, {FadeInLeft} from 'react-native-reanimated';
 import {FadeInDown} from 'react-native-reanimated';
 import {detailData} from '../../listOfData/ListOfData';
+import {SharedElement} from 'react-navigation-shared-element';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -12,7 +13,8 @@ export default function FoodDetails() {
   const Route: any = useRoute();
   const title = useRef(new Animated.Value(0)).current;
   const starBox = useRef(new Animated.Value(0)).current;
-
+  const {image} = Route?.params;
+  // console.log(Route?.params)
   useEffect(() => {
     setTimeout(() => {
       Animated.spring(title, {
@@ -68,7 +70,9 @@ export default function FoodDetails() {
       </View>
       <View style={{alignItems: 'center', marginTop: 40}}>
         <View>
-          <Image style={style.img} source={Route.params.img} />
+          <SharedElement id={'image' + Route.params.image.id}>
+            <Image style={style.img} source={Route.params.image.img} />
+          </SharedElement>
           <Animated.View
             style={[style.star, {transform: [{translateX: _scrollX}]}]}>
             <Image source={require('../../img/star.png')} />
@@ -96,6 +100,24 @@ export default function FoodDetails() {
           showsHorizontalScrollIndicator={false}
         />
       </View>
+      <Animate.View entering={FadeInLeft.duration(1000)} style={{flexDirection: 'row',alignItems:'center',marginLeft:40,marginTop:20,gap:20}}>
+        <View style={{flexDirection: 'row',alignItems:'center'}}>
+          <Text style={{fontWeight:'700',fontSize:16,color:'black'}}>$</Text>
+          <Text style={{fontWeight:'700',fontSize:18,color:'black'}}> 18.99</Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#FF6D6D',
+            paddingVertical: 7,
+            borderRadius: 7,
+            paddingHorizontal: 20,
+          }}>
+          <Image
+            source={require('../../img/cart.png')}
+            style={{width: 20, height: 20}}
+          />
+        </View>
+      </Animate.View>
     </View>
   );
 }

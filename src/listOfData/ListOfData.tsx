@@ -13,8 +13,8 @@ const data1 = [
   },
   {
     id: 3,
-    img: require('../img/burger1.png'),
-    text: 'Pizza',
+    img: require('../img/sand.jpeg'),
+    text: 'Sandwich',
     isactive: false,
   },
 ];
@@ -24,31 +24,37 @@ const pizzaData = [
     id: 1,
     img: require('../img/pizza6.png'),
     text: 'Burger',
+    price:25
   },
   {
     id: 2,
     img: require('../img/pizza5.png'),
     text: 'Pizza',
+    price:40
   },
   {
     id: 3,
     img: require('../img/pizza3.png'),
     text: 'Pizza',
+    price:15
   },
   {
     id: 4,
     img: require('../img/pizza4.png'),
     text: 'Pizza',
+    price:70
   },
   {
     id: 5,
     img: require('../img/pizza5.png'),
     text: 'Pizza',
+    price:35
   },
   {
     id: 6,
     img: require('../img/pizza6.png'),
     text: 'Pizza',
+    price:25
   },
 ];
 
@@ -57,31 +63,43 @@ const burgerData = [
     id: 1,
     img: require('../img/burger1.png'),
     text: 'Burger',
+    price:45
   },
   {
     id: 2,
     img: require('../img/burger2.png'),
-    text: 'Pizza',
+    text: 'Burger',
+    price:20
   },
   {
     id: 3,
-    img: require('../img/pizza3.png'),
-    text: 'Pizza',
+    img: require('../img/burger2.jpg'),
+    text: 'Burger',
+    price:30
   },
   {
     id: 4,
-    img: require('../img/pizza4.png'),
-    text: 'Pizza',
+    img: require('../img/burger3.jpeg'),
+    text: 'Burger',
+    price:15
   },
   {
     id: 5,
-    img: require('../img/pizza5.png'),
-    text: 'Pizza',
+    img: require('../img/burger4.jpeg'),
+    text: 'Burger',
+    price:25
   },
   {
     id: 6,
-    img: require('../img/pizza6.png'),
-    text: 'Pizza',
+    img: require('../img/burger5.jpeg'),
+    text: 'Burger',
+    price:23
+  },
+  {
+    id: 7,
+    img: require('../img/burger6.jpg'),
+    text: 'Burger',
+    price:25
   },
 ];
 

@@ -1,19 +1,23 @@
 import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import React from 'react';
 import Animated from 'react-native-reanimated';
+import {SharedElement} from 'react-navigation-shared-element';
 
 export default function ListFood(props: any) {
   return (
-    <Pressable onPress={()=>{props.onPress()}}>
+    <Pressable
+      onPress={() => {
+        props.onPress();
+      }}>
       <Animated.View entering={props.FadeInRight} style={styles.cardContainer}>
         <View style={styles.cardContent}>
           <View style={{flex: 0.5, alignItems: 'center'}}>
             <Text style={styles.pizzaName}>pizza</Text>
-            <Text style={styles.pizzaPrice}>300</Text>
+            <Text style={styles.pizzaPrice}>$ {props.price}</Text>
           </View>
-          <View style={{flex: 0.5}}>
+          <SharedElement id={'image' + props.id} style={{flex: 0.5}}>
             <Image source={props.img} style={styles.image} />
-          </View>
+          </SharedElement>
         </View>
       </Animated.View>
     </Pressable>
